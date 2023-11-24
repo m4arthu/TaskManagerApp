@@ -1,0 +1,27 @@
+<div class="container">
+	<table class="table table-striped">
+		<thead>
+			<tr>
+				<th scope="col">#</th>
+				<th scope="col">Task</th>
+				<th scope="col">Description</th>
+				<th scope="col">Date</th>
+			</tr>
+		</thead>
+		<tbody>
+			@for (task of tasks; track task.task_name; let i = $index) {
+			<tr>
+				<th scope="row">{{ i + 1 }}</th>
+				<td>{{task.task_name}}</td>
+				<td>{{task.task_description}}</td>
+				<td>{{task.deadline}}</td>
+				<td>
+					<button class="me-5" (click)="updateTask()" value="update">update</button>
+					<button id="{{task.id}}" (click)="deleteTask($event)">delete</button>
+				</td>
+			</tr>
+			}
+		</tbody>
+	</table>
+	<button><a routerLink="/create">Add a task</a></button>
+</div>

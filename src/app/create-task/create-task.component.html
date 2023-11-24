@@ -1,0 +1,21 @@
+
+ <div class="mt-5 container">
+    <button><a routerLink="">Home</a></button>
+     <form action="" #frm="ngForm" (ngSubmit)="createTask()">
+         <h1>Crie sua tarefa</h1>
+         <div class="mb-3">
+             <label for="exampleFormControlInput1" class="form-label">Nome da tarefa</label>
+             <input  [(ngModel)]="name" name="name" type="text" required class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+            </div>
+            <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label">Selecione a data</label>
+                <input [(ngModel)]="date" max="2033-12-31" name="data" required  type="date" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+            </div>
+            <div class="mb-3">
+                <label for="exampleFormControlTextarea1" class="form-label">Descrição da tarefa</label>
+                <textarea [(ngModel)]="description" name="description" required=""  class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+            </div>
+
+            <button [disabled]="frm.invalid" type="submit">Criar Tarefa</button>
+        </form>
+    </div>
