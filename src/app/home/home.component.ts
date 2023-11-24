@@ -1,13 +1,13 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Tasks } from '../../services/tasks.service';
-import { TaskSchema } from '../../schemas/task.schemas';
+import { CreateTaskSchema, TaskSchema, UpdateTaskSchema } from '../../schemas/task.schemas';
 import { RouterLink } from '@angular/router';
-
+import { FormsModule } from '@angular/forms';
 @Component({
     selector: 'app-home',
     standalone: true,
-    imports: [CommonModule,RouterLink],
+    imports: [CommonModule, RouterLink,FormsModule],
     templateUrl: './home.component.html',
     styleUrl: './home.component.sass'
 })
@@ -22,13 +22,44 @@ export class HomeComponent {
         this.tasks = await Tasks.get();
     }
 
-    updateTask = () => {
-        alert("update");
-    };
+  
+    // gerenciando a modal 
+    @ViewChild('exampleModal', { static: false })
+    exampleModal?: ElementRef;
+    public name:string = ""
+    public description:string  = ""
+    public date:string = ""
+    public taskId:number = 0
+    // abre  a  modal  e pega o id da task e passa para o  seviço de atualização
 
-    public async deleteTask(e: Event){
+    openModal(e: Event) {
         const target = e.target as HTMLTextAreaElement;
-        await Tasks.delete(Number(target.id))
+         this.taskId = Number(target.id) as number
+        (this.exampleModal?.nativeElement as HTMLElement).style.display = "block"
+    }
+
+    closeModal() {
+        this.taskId = Number("") as number
+        (this.exampleModal?.nativeElement as HTMLElement).style.display = "none"
+    }
+
+
+  // opções de atualizar e  de deletar a tasks
+    public async updateTask(){
+        const task:UpdateTaskSchema = {
+            name: this.name,
+            description :this.description,
+            date:  this.date,
+            taskId: this.taskId
+        }
+        await Tasks.update(task)
         this.initializeTasks()
-    };
+        this.closeModal()
+    }
+   public async deleteTask(e: Event) {
+       const target = e.target as HTMLTextAreaElement;
+       await Tasks.delete(Number(target.id))
+       this.initializeTasks()
+   };
+
 }

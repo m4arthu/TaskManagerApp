@@ -10,3 +10,10 @@ export interface CreateTaskSchema {
 	description: string,
 	date: string
 }
+
+export interface UpdateTaskSchema {
+	name: string,
+	description: string,
+	date: string,
+	taskId: number
+}
