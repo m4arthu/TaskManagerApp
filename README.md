@@ -1,27 +1,60 @@
-# TaskManagerApp
+# TaskManager
+No dia a dia sempre tem  alguma  tarefa  importante que deixamos de fazer por não lembrar se  temos muita coisa  a  fazer 
+os gerenciadores de  tarefa vem  com  essa primissa, uma agenda onde você pode administrar  suas tarefas e asssim nunca se  perder durante
+o dia.
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.0.3.
+# Sobre
+O projeto taskmanager é dividido em duas partes a api(backend) que processa as CRUDS e  envia os resultados a este taskmanagerapp(frontend).
+Onde o usuário pode: criar,editar,deletar e receber suas atividades.
 
-## Development server
+# deploy:
+ - https://task-manager-app-lime.vercel.app
+ 
+# tecnologias
+ - Typescript // linguagem de progamação
+ - Angular // Framework para criar a single page aplication
+ - Node.js // engine para rodar a aplicação
+ - Npm // gerenciador de pacotes
+ - Angular-cli // para cirar, compilar e gerenciar o  app
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+# Views
+   - Home page:
 
-## Code scaffolding
+  ![image](https://github.com/m4arthu/TaskManagerApp/assets/102080715/e859dc2a-30a0-4385-8f57-868dd96c50ab)
+  
+  - Edit task page:
+    
+  ![image](https://github.com/m4arthu/TaskManagerApp/assets/102080715/fa5cb2c2-1ed7-44c0-82f6-226b2137e8b6)
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+ - Create task Page:
 
-## Build
+  ![image](https://github.com/m4arthu/TaskManagerApp/assets/102080715/e2a59028-3185-4831-ba1b-da8932126b88)
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+# Como rodar:
+- intale o node.js,npm e  angular-cli na sua maquina:
+- Clone o  repositorio:
+  ```````powershell
+  git clone <ssh deste repositorio>
+  ```````
+  ps: não se esqueça de subistituir o espaço delimitado  por pela ssh <> para pegar a ssh va em code -> ssh e copie a ssh
+- acesse a raiz da pasta TaskManager e rode no terminal:
+  ``````powershell
+   npm i 
+  ``````
+- depois de instaladas as dependencias rode na raiz do  projeto:
+   ``````powershell
+    ng serve 
+  ``````
+- após a build, caso  detudo  certo você ja pode acessar  as rodas do projeto, ebaaaaa !!!!
+  ps: lembre que o app por padrão  esta apontado para a api deployada caso  queira rodas com a api  localmente prossiga para os proximos passos!!
 
-## Running unit tests
+- rodando  com  a api local:
+  1 - acesse: https://github.com/m4arthu/TaskManager e siga os passos para rodar a api
+  2 - a partir da root do projeto va para o arquivo localizado em /src/services/tasks.service.ts
+  3 - edite a propriedade baseUrl colocalndo o  valor com  a url para sua api  local, por padrão é http://localhost:8000/tasks
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+# Rotas
 
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+- home http://localhost:4200
+- Create task  http://localhost:4200/create   
+  
