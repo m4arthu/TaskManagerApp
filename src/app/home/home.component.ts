@@ -31,10 +31,14 @@ export class HomeComponent {
     public date:string = ""
     public taskId:number = 0
     // abre  a  modal  e pega o id da task e passa para o  seviço de atualização
-
+    
     openModal(e: Event) {
         const target = e.target as HTMLTextAreaElement;
-         this.taskId = Number(target.id) as number
+        const task = this.tasks.filter((task)=> (task.id === Number(target.id)));
+        this.taskId = Number(target.id) as number;
+        this.name = task[0].task_name;
+        this.description = task[0].task_description;
+        this.date = task[0].deadline;
         (this.exampleModal?.nativeElement as HTMLElement).style.display = "block"
     }
 

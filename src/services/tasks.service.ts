@@ -1,7 +1,7 @@
 import { CreateTaskSchema, TaskSchema, UpdateTaskSchema } from "../schemas/task.schemas";
 import axios from "axios"
 export class Tasks {
-    private static baseUrl:string = "http://localhost:8080/tasks"
+    private static baseUrl:string = "http://m4arthu.space/tasks"
     
     private static tasks: TaskSchema[];
 

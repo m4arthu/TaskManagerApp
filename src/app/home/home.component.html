@@ -18,7 +18,7 @@
 				<td>{{task.deadline}}</td>
 				<td>
 					<button id="{{task.id}}" type="button" class="btn btn-primary  me-5" data-bs-toggle="modal" data-bs-target="#staticBackdrop" (click)="openModal($event)" value="update">update</button>
-					<button id="{{task.id}}" (click)="deleteTask($event)">delete</button>
+					<button class="btn btn-secondary  me-5" id="{{task.id}}" (click)="deleteTask($event)">delete</button>
 				</td>
 			</tr>
 			}
