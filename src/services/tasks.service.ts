@@ -1,7 +1,7 @@
 import { CreateTaskSchema, TaskSchema, UpdateTaskSchema } from "../schemas/task.schemas";
 import axios from "axios"
 export class Tasks {
-    private static baseUrl:string = "https://taskappteste.000webhostapp.com/tasks"
+    private static baseUrl:string = "http://localhost:8080/tasks"
     
     private static tasks: TaskSchema[];
 
@@ -45,3 +45,4 @@ export class Tasks {
     }
         
 }
+
