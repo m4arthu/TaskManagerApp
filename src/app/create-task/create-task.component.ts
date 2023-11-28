@@ -18,10 +18,12 @@ export class CreateTaskComponent {
   constructor(private route:Router){
     
   }
+  // variaveis para o formulario 
   public name:string = ""
   public description:string  = ""
   public date:string = ""
-   
+  
+  // cria a tarefa
  async createTask(){
     
   const task:CreateTaskSchema = {
@@ -29,9 +31,20 @@ export class CreateTaskComponent {
        description :this.description,
        date:  this.date
       }
-      if(Number(new Date(this.date).getFullYear()) > 2033){
-        alert("selecionne uma data anterior a jan/2034")
-        return
+        // verifica a se  a data é  valida
+        if (Number(new Date(this.date).getFullYear()) > 2033 || Number(new Date(this.date).getFullYear()) < Number(new Date().getFullYear())) {
+          alert("selecionne uma data anterior a jan/2034 e maior que a atual")
+          return
+      }
+
+      if (Number(new Date(this.date).getFullYear()) === Number(new Date().getFullYear()) && Number(new Date(this.date).getMonth()) < Number(new Date().getMonth())) {
+          alert("selecionne o mês atual ou posterior")
+          return
+      }
+      if (Number(new Date(this.date).getFullYear()) === Number(new Date().getFullYear()) && Number(new Date(this.date).getMonth()) === Number(new Date().getMonth())
+          && Number(new Date(this.date).getDay()) < Number(new Date().getDay())) {
+          alert("selecionne um dia atual ou posterior")
+          return
       }
       await Tasks.create(task)
       .then(()=>{

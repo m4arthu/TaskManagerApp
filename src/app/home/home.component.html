@@ -15,7 +15,7 @@
 				<th scope="row">{{ i + 1 }}</th>
 				<td>{{task.task_name}}</td>
 				<td>{{task.task_description}}</td>
-				<td>{{task.deadline}}</td>
+				<td>{{task.deadline | date : 'dd/MM/yyyy'}}</td>
 				<td>
 					<button id="{{task.id}}" type="button" class="btn btn-primary  me-5" data-bs-toggle="modal" data-bs-target="#staticBackdrop" (click)="openModal($event)" value="update">Editar</button>
 					<button class="btn btn-secondary  me-5" id="{{task.id}}" (click)="deleteTask($event)">delete</button>
